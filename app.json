@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CCI--SIO20-atelier",
+    "slug": "CCI--SIO20-atelier",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
