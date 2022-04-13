@@ -1,5 +1,8 @@
 // database/firebaseDb.js
-import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import 'firebase/compat/analytics';
 const firebaseConfig = {
   apiKey: "AIzaSyDejDWJEeFyKtMBjKfshk0Xl_suSblojQE",
   authDomain: "cci-atelier4.firebaseapp.com",
@@ -8,6 +11,4 @@ const firebaseConfig = {
   messagingSenderId: "1042304278172",
   appId: "1:1042304278172:web:47c554b99bbceb526d5759"
 };
-
-firebase.initializeApp(firebaseConfig);
-export default firebase;
+export default firebase.initializeApp(firebaseConfig);
