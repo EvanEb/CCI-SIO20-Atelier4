@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import firebase from '../database/xfirebase';
+import Navigation from '../Navigation/Navigation';
+import { Provider } from "react-redux";
+import Store from "../Store/configureStore";
+import Search from "../components/Search";
+
 export default class Dashboard extends Component {
   constructor() {
     super();
@@ -13,7 +18,7 @@ export default class Dashboard extends Component {
     firebase.auth().signOut().then(() => {
       this.props.navigation.navigate('Login')
     })
-    .catch(error => this.setState({ errorMessage: error.message }))
+      .catch(error => this.setState({ errorMessage: error.message }))
   }
   render() {
     this.state = {
@@ -21,8 +26,8 @@ export default class Dashboard extends Component {
       uid: firebase.auth().currentUser.uid
     }
     return (
-      <View style={styles.container}>
-        <Text style = {styles.textStyle}>
+     /*  <View style={styles.container}>
+        <Text style={styles.textStyle}>
           Hello, {this.state.displayName}
         </Text>
         <Button
@@ -30,7 +35,11 @@ export default class Dashboard extends Component {
           title="Logout"
           onPress={() => this.signOut()}
         />
-      </View>
+
+      </View> */
+      <Provider store={Store}>
+          <Navigation />
+        </Provider>
     );
   }
 }
