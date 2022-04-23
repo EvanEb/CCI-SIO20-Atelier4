@@ -75,6 +75,11 @@ class Search extends React.Component {
         />
         <FilmList films={this.state.films}></FilmList>
         {this._displayLoading()}
+        <Button
+          color="#3740FE"
+          title="Logout"
+          onPress={() => this.signOut()}
+        />
       </View>
     );
   }
